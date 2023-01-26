@@ -1,0 +1,45 @@
+<div class="container">
+
+<div class="form">
+    <div>
+        <h1>רשימת מוסכים</h1>
+    </div><br/>
+    <div class="area-pick"> 
+         <h3>בחר איזור</h3>
+         <select [(ngModel)]="AreaPick" (change)="getByArea($event)">
+                <option value="default">בחר</option>
+                <option *ngFor="let area of areas" [value]="area">
+                    {{area}}
+                </option>
+        </select>
+    </div>
+    
+    
+    <div class="search">
+        <h4>שם עיר</h4>
+        <input type="text" style="text-align: right;"  id="searchValue"  [(ngModel)]="searchValue" (keyup)='getSearchValue($event)' placeholder="הזן שם עיר">
+        <button (click)="searchByCity()">חפש</button>
+        <button (click)="callApi()">נקה חיפוש</button>
+    </div>
+    <div *ngIf="isLoading"> Loading ... </div>
+
+
+</div>
+
+
+<div *ngIf="isLoading == false" class="garage">
+    <div *ngFor="let garage of garages" class="garage-box">
+        <mat-card >
+         <mat-label style="font-weight: bold;">{{garage.Name}}</mat-label>
+         <mat-label>{{garage.Address}} ,{{garage.City}}</mat-label>
+         <mat-label>מרחק ממיקומך: {{garage.Distance}} ק"מ</mat-label>
+        </mat-card>
+    </div>
+</div>
+
+<div *ngIf="noResults && !garages">
+    <h1>לא נמצאו תוצאות לחיפוש</h1>
+</div>
+
+
+</div>

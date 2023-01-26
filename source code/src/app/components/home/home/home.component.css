@@ -1,0 +1,39 @@
+.garage {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    font-family: 'Courier New', monospace;
+    
+}
+
+
+
+.search {
+    margin-bottom: 20px;
+}
+
+.garage-box {
+    width: 250px;
+    border-color:rgb(83, 80, 80);
+    margin: 5px 5px;
+    text-align: right;
+    border-radius: 25px;
+    border: 5px ;
+
+}
+
+.form{
+    
+    text-align: right;
+    display: grid;
+    justify-content: center;
+}
+
+.container {
+    background-color: antiquewhite;
+}
+
+.area-pick {
+    
+}
